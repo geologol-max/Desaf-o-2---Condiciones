@@ -1,0 +1,5 @@
+{
+  "name": "Desafío 2 - Condiciones",
+  "description": "Resolución de 3 problemas de manipulación del DOM y lógica condicional: toggle de borde de imagen, contador de stickers y verificador de password.",
+  "requestFramePermissions": []
+}
