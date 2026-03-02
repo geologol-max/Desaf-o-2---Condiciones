@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafío 2 - Condiciones</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-stone-100 p-4 md:p-8 font-sans text-stone-900">
+  <div class="max-w-4xl mx-auto space-y-12">
+    <!-- Header -->
+    <header class="text-center space-y-2">
+      <h1 class="text-4xl font-bold tracking-tight text-stone-900 italic serif">Desafío 2 - Condiciones</h1>
+      <p class="text-stone-500 uppercase tracking-widest text-xs font-semibold">Academia de Talentos Digitales</p>
+    </header>
+
+    <!-- Requirement 1 -->
+    <section class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 md:p-8 space-y-6">
+      <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+        <svg class="w-5 h-5 text-emerald-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <h2 class="text-xl font-semibold">1. Borde de Imagen</h2>
+      </div>
+      <div class="flex flex-col items-center space-y-4">
+        <p class="text-stone-600 text-sm text-center max-w-md">Haz clic en la imagen para agregar o quitar un borde rojo
+          de 2 píxeles.</p>
+        <div class="relative group cursor-pointer" id="image-container">
+          <img id="toggle-image" src="https://picsum.photos/seed/nature/400/300" alt="Nature"
+            class="rounded-lg transition-all duration-300 border-0" />
+          <div id="image-hint"
+            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10 rounded-lg pointer-events-none">
+            <span class="bg-white/90 px-3 py-1 rounded-full text-xs font-medium shadow-sm">Click para borde</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Requirement 2 -->
+    <section class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 md:p-8 space-y-6">
+      <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+        <svg class="w-5 h-5 text-emerald-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"></path>
+          <path d="M14 3v7h7"></path>
+          <path d="M8 13h2"></path>
+          <path d="M8 17h2"></path>
+          <path d="M14 13h2"></path>
+          <path d="M14 17h2"></path>
+        </svg>
+        <h2 class="text-xl font-semibold">2. Pedido de Stickers</h2>
+      </div>
+      <div class="space-y-8">
+        <p class="text-stone-600 text-sm text-center">Puedes llevar hasta 10 stickers en total.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="flex flex-col items-center space-y-3">
+            <img src="https://picsum.photos/seed/sticker1/150/150" alt="Sticker 1"
+              class="rounded-xl shadow-sm w-32 h-32 object-cover" />
+            <input type="number" min="0" value="0" id="sticker1"
+              class="w-20 px-3 py-2 border border-stone-200 rounded-lg text-center focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all" />
+          </div>
+          <div class="flex flex-col items-center space-y-3">
+            <img src="https://picsum.photos/seed/sticker2/150/150" alt="Sticker 2"
+              class="rounded-xl shadow-sm w-32 h-32 object-cover" />
+            <input type="number" min="0" value="0" id="sticker2"
+              class="w-20 px-3 py-2 border border-stone-200 rounded-lg text-center focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all" />
+          </div>
+          <div class="flex flex-col items-center space-y-3">
+            <img src="https://picsum.photos/seed/sticker3/150/150" alt="Sticker 3"
+              class="rounded-xl shadow-sm w-32 h-32 object-cover" />
+            <input type="number" min="0" value="0" id="sticker3"
+              class="w-20 px-3 py-2 border border-stone-200 rounded-lg text-center focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all" />
+          </div>
+        </div>
+        <div class="pt-4 text-center">
+          <p id="sticker-message"
+            class="text-lg font-medium px-4 py-2 rounded-full inline-block bg-emerald-50 text-emerald-700">Llevas 0
+            stickers</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Requirement 3 -->
+    <section class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 md:p-8 space-y-6">
+      <div class="flex items-center gap-3 border-b border-stone-100 pb-4">
+        <svg class="w-5 h-5 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <h2 class="text-xl font-semibold">3. Verificador de Password</h2>
+      </div>
+      <div class="flex flex-col items-center space-y-8">
+        <h3 class="text-lg font-medium text-stone-700">Ingresa el password</h3>
+        <div class="flex gap-4">
+          <select id="pass1"
+            class="px-4 py-2 border border-stone-200 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-emerald-500 outline-none cursor-pointer hover:border-stone-300 transition-all">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+          <select id="pass2"
+            class="px-4 py-2 border border-stone-200 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-emerald-500 outline-none cursor-pointer hover:border-stone-300 transition-all">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+          <select id="pass3"
+            class="px-4 py-2 border border-stone-200 rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-emerald-500 outline-none cursor-pointer hover:border-stone-300 transition-all">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </div>
+        <button id="check-password-btn"
+          class="px-8 py-3 bg-stone-900 text-white rounded-xl font-medium hover:bg-stone-800 active:scale-95 transition-all shadow-md">Ingresar</button>
+        <div id="pass-result-container"
+          class="hidden flex items-center gap-2 px-4 py-3 rounded-xl transition-all duration-300 shadow-lg"
+          style="opacity: 0;">
+          <div id="pass-result-icon"></div>
+          <p id="pass-result-text" class="font-medium"></p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center py-8 border-t border-stone-200">
+      <p class="text-stone-400 text-sm">© 2026 Desafío Latam - Ejercicios de Condiciones</p>
+    </footer>
+  </div>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
